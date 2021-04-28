@@ -20,9 +20,8 @@ func hello(name string, resp chan string) {
 
 func main() {
     resp := make(chan string)
-    for i := 0; i < 5; i++ {
-        go hello("Thread "+fmt.Sprint(i+1), resp)
-    }
+    go hello("Thread 1", resp)
+
     fmt.Println("Final do bloco da Thread Principal")
     fmt.Println(<-resp)
 }
